@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <title>Currency Converter</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Currency Converter</h1> 
+        </header>
+        <main>
+            
+            <form action="">
+                <h2>Enter Amount</h2>
+                <input type="number" name="amount" id="amount">
+                <h3>From</h3>
+                <select name="from" id="from">
+                    <option value="USD">USD</option>
+                </select>
+                <h3>To</h3>
+                <select name="to" id="to">
+                        <option value="NGN">NGN</option>
+                </select><br>
+                <button class="convert" id="convert">Convert</button>
+            </form>
+            <div class="result" id="result">
+                <p>Result goes here</p>
+            </div>
+        </main>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
