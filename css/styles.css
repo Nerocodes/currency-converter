@@ -6,9 +6,26 @@ body{
 
 main{
     background-color: #585858;
+    padding: 1rem;
 }
 
 footer{
-    margin-top: 40vh;
+    margin-top: 20vh;
 }
 
+.convert{
+    margin-top: 1rem;
+}
+
+.result{
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    height: 10%;
+    font-size: 16px;
+    padding: 1rem;
+    background-color: #ffffff;
+    color: #050505;
+    border: 1px solid #585858;
+    margin-top: 1rem;
+}
