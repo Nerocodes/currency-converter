@@ -1,24 +1,21 @@
 "use strict"
 
-document.getElementById('convert').addEventListener("click", function(){
-    let amount = document.getElementById('amount');
+document.getElementById('convert').addEventListener("click", () => {
+    let amount = document.getElementById('amount').value;
     let from = document.getElementById('from').value;
     let to = document.getElementById('to').value;
     let convert = `${from}_${to}`;
+    let url = `https://free.currencyconverterapi.com/api/v5/convert?q=${convert}&compact=ultra`;
 
-    let url = `https://free.currencyconverterapi.com/api/v5/convert?q=${convert}&compact=${amount}`;
-
-    fetch(url).then(function(response){
+    document.getElementById('result').innerHTML = "Converting...";
+    fetch(url).then((response) => {
         return response.json();
     })
-    .then(function(myJson){
-        document.getElementById('result').innerHTML = myJson.results[convert].val;
-        console.log(myJson.results[convert].val);
+    .then((myJson) => {
+        let converted = myJson[convert] * amount;
+        document.getElementById('result').innerHTML = Math.round(converted);
+        console.log(Math.round(converted));
     });
-
-    
-    
-
 
 });
 
