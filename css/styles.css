@@ -2,11 +2,10 @@ body{
     text-align: center;
     background-color: #050505;
     color: #ffffff;
-
+    font-family: 'Jura', sans-serif;
 }
 
 main{
-    /* background-color: #585858; */
     padding: 1rem;
     display: flex;
     justify-content: center;
