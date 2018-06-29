@@ -1,4 +1,4 @@
-let cacheName = 'v1';
+let cacheName = 'v2';
 let cacheFiles = [
     './',
     './index.html',
@@ -56,7 +56,7 @@ self.addEventListener('fetch', (e) => {
 
                 caches.open(cacheName).then((cache) => {
                     cache.put(e.request, responseClone);
-                    return response;
+                    return fetch(e.request);
                 });
 
             }).catch((err) => {

@@ -10,6 +10,8 @@ document.getElementById('convert').addEventListener("click", () => {
     document.getElementById('result').innerHTML = "Converting...";
     fetch(url).then((response) => {
         return response.json();
+    }).catch((err) => {
+        document.getElementById('result').innerHTML = "Click convert button again"; 
     })
     .then((myJson) => {
         let converted = myJson[convert] * amount;
