@@ -1,9 +1,9 @@
-let cacheName = 'v2';
+let cacheName = 'v5';
 let cacheFiles = [
     './',
     './index.html',
     './css/styles.css',
-    'https://fonts.googleapis.com/css?family=Jura',
+    './js/idb.js',
     './js/app.js',
     './js/scripts.js'
 ];
@@ -56,7 +56,7 @@ self.addEventListener('fetch', (e) => {
 
                 caches.open(cacheName).then((cache) => {
                     cache.put(e.request, responseClone);
-                    return fetch(e.request);
+                    return response;
                 });
 
             }).catch((err) => {
