@@ -22,10 +22,6 @@ document.getElementById('convert').addEventListener("click", () => {
         fetch(url).then((response) => {
             return response.json();
         }).catch((err) => {
-            fetch(url).then((r) => {
-                console.log('st chance')
-                return r.myJson();
-            });
             document.getElementById('result').innerHTML = "Click convert button again"; 
         })
         .then((myJson) => {
