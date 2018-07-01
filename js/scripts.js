@@ -22,19 +22,22 @@ document.getElementById('convert').addEventListener("click", () => {
         fetch(url).then((response) => {
             return response.json();
         }).catch((err) => {
-            document.getElementById('result').innerHTML = "Click convert button again"; 
+            document.getElementById('result').innerHTML = "This rate is not available offline, please connect!"; 
         })
         .then((myJson) => {
-            dbPromise.then((db) => {
-                let tx = db.transaction('exchange_rate', 'readwrite');
-                let keyValStore = tx.objectStore('exchange_rate');
-                keyValStore.put(myJson, convert);
-                return tx.complete;
-            }).then(() => {
-                console.log('added new rate');
-            });
-            let converted = myJson[convert] * amount;
-            document.getElementById('result').innerHTML = Math.round(converted).toLocaleString();
+            if(myJson){
+                dbPromise.then((db) => {
+                    let tx = db.transaction('exchange_rate', 'readwrite');
+                    let keyValStore = tx.objectStore('exchange_rate');
+                    keyValStore.put(myJson, convert);
+                    return tx.complete;
+                }).then(() => {
+                    console.log('added new rate');
+                });
+                let converted = myJson[convert] * amount;
+                document.getElementById('result').innerHTML = Math.round(converted).toLocaleString();
+            };
+            
         });
     });
 

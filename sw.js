@@ -1,4 +1,4 @@
-let cacheName = 'v1';
+let cacheName = 'v2';
 let cacheFiles = [
     './',
     './index.html',
@@ -39,30 +39,9 @@ self.addEventListener('fetch', (e) => {
 
     e.respondWith(
         caches.match(e.request).then((response) => {
-            if (response){
-                console.log('[ServiceWorker] Found in cache', e.request.url);
-                return response;
-            }
-
-            let requestClone = e.request.clone();
-
-            fetch(requestClone).then((response) => {
-                if (!response) {
-                    console.log('[ServiceWorker] No response from fetch');
-                    return response;
-                }
-
-                let responseClone = response.clone();
-
-                caches.open(cacheName).then((cache) => {
-                    cache.put(e.request, responseClone);
-                    return response;
-                });
-
-            }).catch((err) => {
-                console.log('[ServiceWorker] Error fetching & caching');
-            });
+            if(response) return response;
+            return fetch(e.request);
         })
-    )
+    );
 
 });
