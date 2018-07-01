@@ -29,6 +29,10 @@ main{
     border-bottom: 2px solid #ffffff;
 }
 
+#amount{
+    border: 2px solid #ffffff;
+}
+
 #from option, #to option{
     color: #050505;
     
