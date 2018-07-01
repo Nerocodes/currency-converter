@@ -46,14 +46,6 @@ document.getElementById('convert').addEventListener("click", () => {
 });
 
 
-//idb
-
-// let dbPromise = idb.open('cc-db', 1, (upgradeDb) => {
-//     let keyValStore = upgradeDb.createObjectStore('exchange_rate', {keypath: convert});
-//     keyValStore.put(rateJson, convert);
-// });
-
-
 
 
 
