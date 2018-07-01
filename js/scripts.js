@@ -17,8 +17,7 @@ document.getElementById('convert').addEventListener("click", () => {
         return keyValStore.get(convert);
     }).then((val) => {
         let converted = val[convert] * amount;
-            document.getElementById('result').innerHTML = Math.round(converted);
-            console.log(Math.round(converted), 'from indexedDb');
+            document.getElementById('result').innerHTML = Math.round(converted).toLocaleString();
     }).catch((err) => {
         fetch(url).then((response) => {
             return response.json();
@@ -39,8 +38,7 @@ document.getElementById('convert').addEventListener("click", () => {
                 console.log('added new rate');
             });
             let converted = myJson[convert] * amount;
-            document.getElementById('result').innerHTML = Math.round(converted);
-            console.log(Math.round(converted));
+            document.getElementById('result').innerHTML = Math.round(converted).toLocaleString();
         });
     });
 
